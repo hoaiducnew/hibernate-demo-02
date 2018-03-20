@@ -11,14 +11,14 @@ import com.example.hibernatedemo02.entity.Course;
 import com.example.hibernatedemo02.repository.CourseRepository;
 
 @SpringBootApplication
-public class HibernateDemo02Application implements CommandLineRunner {
+public class HibernateDemoApplication implements CommandLineRunner {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private CourseRepository repository;
 
 	public static void main(String[] args) {
-		SpringApplication.run(HibernateDemo02Application.class, args);
+		SpringApplication.run(HibernateDemoApplication.class, args);
 	}
 
 	@Override
