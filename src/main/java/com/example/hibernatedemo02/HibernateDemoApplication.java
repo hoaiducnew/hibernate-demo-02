@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.hibernatedemo02.repository.CourseRepository;
+import com.example.hibernatedemo02.repository.StudentRepository;
 
 @SpringBootApplication
 public class HibernateDemoApplication implements CommandLineRunner {
@@ -15,6 +16,9 @@ public class HibernateDemoApplication implements CommandLineRunner {
 
 	@Autowired
 	private CourseRepository repository;
+	
+	@Autowired
+	private StudentRepository studentRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(HibernateDemoApplication.class, args);
@@ -22,6 +26,7 @@ public class HibernateDemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		repository.playWithEntityManager();
+		studentRepository.saveStudentWithPassport();
+//		repository.playWithEntityManager();
 	}
 }
