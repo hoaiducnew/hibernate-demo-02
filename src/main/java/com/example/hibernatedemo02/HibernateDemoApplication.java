@@ -24,9 +24,6 @@ public class HibernateDemoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Course course = repository.findById(10001L);
-
 		logger.info("Course 10001 -> {}", course);
-
-		repository.deleteById(10001L);
 	}
 }
