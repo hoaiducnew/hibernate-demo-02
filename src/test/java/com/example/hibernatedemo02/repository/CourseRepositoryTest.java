@@ -15,16 +15,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.example.hibernatedemo02.HibernateDemoApplication;
 import com.example.hibernatedemo02.entity.Course;
 
-
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes=HibernateDemoApplication.class)
+@SpringBootTest(classes = HibernateDemoApplication.class)
 public class CourseRepositoryTest {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Autowired
 	CourseRepository repository;
-	
+
 	@Test
 	public void findById_basic() {
 		Course course = repository.findById(10001L);
@@ -36,5 +35,23 @@ public class CourseRepositoryTest {
 	public void deleteById_basic() {
 		repository.deleteById(10002L);
 		assertNull(repository.findById(10002L));
+	}
+
+	@Test
+	@DirtiesContext
+	public void save_basic() {
+
+		// get a course
+		Course course = repository.findById(10001L);
+		assertEquals("JPA in 50 Steps", course.getName());
+
+		// update details
+		course.setName("JPA in 50 Steps - Updated");
+
+		repository.save(course);
+
+		// check the value
+		Course course1 = repository.findById(10001L);
+		assertEquals("JPA in 50 Steps - Updated", course1.getName());
 	}
 }
