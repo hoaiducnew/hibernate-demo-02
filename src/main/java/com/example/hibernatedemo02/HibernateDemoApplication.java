@@ -7,7 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.hibernatedemo02.entity.Course;
 import com.example.hibernatedemo02.repository.CourseRepository;
 
 @SpringBootApplication
@@ -23,8 +22,6 @@ public class HibernateDemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Course course = repository.findById(10001L);
-		logger.info("Course 10001 -> {}", course);
-		repository.save(new Course("Microservices in 100 Steps"));
+		repository.playWithEntityManager();
 	}
 }

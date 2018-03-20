@@ -34,4 +34,9 @@ public class CourseRepository {
 		em.remove(course);
 	}
 
+	public void playWithEntityManager() {
+		Course course = new Course("Web Services in 100 Steps");
+		em.persist(course);
+		course.setName("Web Services in 100 Steps - Updated");
+	}
 }

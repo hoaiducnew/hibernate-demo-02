@@ -51,7 +51,13 @@ public class CourseRepositoryTest {
 		repository.save(course);
 
 		// check the value
-		Course course1 = repository.findById(10001L);
-		assertEquals("JPA in 50 Steps - Updated", course1.getName());
+		course = repository.findById(10001L);
+		assertEquals("JPA in 50 Steps - Updated", course.getName());
+	}
+	
+	@Test
+	@DirtiesContext
+	public void playWithEntityManager() {
+		repository.playWithEntityManager();
 	}
 }
