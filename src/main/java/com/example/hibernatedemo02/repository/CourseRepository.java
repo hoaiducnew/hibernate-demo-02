@@ -38,6 +38,7 @@ public class CourseRepository {
 		Course course1 = new Course("Web Services in 100 Steps");
 		em.persist(course1);
 
-		course1.setName(null);
+		Course course2 = findById(10001L);
+		course2.setName("JPA in 50 Steps - Updated");
 	}
 }
