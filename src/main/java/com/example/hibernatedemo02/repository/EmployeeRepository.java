@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.example.hibernatedemo02.entity.Employee;
+import com.example.hibernatedemo02.entity.FullTimeEmployee;
+import com.example.hibernatedemo02.entity.PartTimeEmployee;
 
 @Repository
 @Transactional
@@ -25,7 +27,11 @@ public class EmployeeRepository {
 		em.persist(employee);
 	}
 
-	public List<Employee> retrieveAllEmployees() {
-		return em.createQuery("select e from Employee e", Employee.class).getResultList();
+	public List<PartTimeEmployee> retrieveAllPartTimeEmployees() {
+		return em.createQuery("select e from PartTimeEmployee e", PartTimeEmployee.class).getResultList();
+	}
+	
+	public List<FullTimeEmployee> retrieveAllFullTimeEmployees() {
+		return em.createQuery("select e from FullTimeEmployee e", FullTimeEmployee.class).getResultList();
 	}
 }
