@@ -10,7 +10,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.hibernatedemo02.entity.Course;
 import com.example.hibernatedemo02.entity.Review;
+import com.example.hibernatedemo02.entity.Student;
 import com.example.hibernatedemo02.repository.CourseRepository;
 import com.example.hibernatedemo02.repository.StudentRepository;
 
@@ -33,11 +35,17 @@ public class HibernateDemoApplication implements CommandLineRunner {
 //		studentRepository.saveStudentWithPassport();
 //		repository.playWithEntityManager();
 		//courseRepository.addHardcodedReviewsForCourse();
-		List<Review> reviews = new ArrayList<>();
+//		List<Review> reviews = new ArrayList<>();
+//		
+//		reviews.add(new Review("5", "Great Hands-on Stuff."));	
+//		reviews.add(new Review("5", "Hatsoff."));
+//
+//		courseRepository.addReviewsForCourse(10003L, reviews );	
 		
-		reviews.add(new Review("5", "Great Hands-on Stuff."));	
-		reviews.add(new Review("5", "Hatsoff."));
-
-		courseRepository.addReviewsForCourse(10003L, reviews );	
+		//courseRepository.addReviewsForCourse(10003L, reviews );
+		
+//		studentRepository.insertHardcodedStudentAndCourse();
+		studentRepository.insertStudentAndCourse(new Student("Jack"), 
+				new Course("Microservices in 100 Steps"));
 	}
 }

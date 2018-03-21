@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.example.hibernatedemo02.entity.Course;
 import com.example.hibernatedemo02.entity.Passport;
 import com.example.hibernatedemo02.entity.Student;
 
@@ -67,5 +68,26 @@ public class StudentRepository {
 		//Database Operation 4 - update student
 		student.setName("Ranga - updated");
 		//Persistence Context (student++ , passport++)
+	}
+	
+	public void insertHardcodedStudentAndCourse(){
+		Student student = new Student("Jack");
+		Course course = new Course("Microservices in 100 Steps");
+		em.persist(student);
+		em.persist(course);
+		
+		student.addCourse(course);
+		course.addStudent(student);
+		em.persist(student);
+	}
+
+	public void insertStudentAndCourse(Student student, Course course){
+		//Student student = new Student("Jack");
+		//Course course = new Course("Microservices in 100 Steps");
+		student.addCourse(course);
+		course.addStudent(student);
+
+		em.persist(student);
+		em.persist(course);
 	}
 }
