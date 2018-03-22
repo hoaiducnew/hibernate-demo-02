@@ -11,6 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.hibernatedemo02.HibernateDemoApplication;
@@ -46,6 +49,21 @@ public class CourseSpringDataRepositoryTest {
 //		repository.save(course);
 		logger.info("Courses -> {} ", repository.findAll());
 		logger.info("Count -> {} ", repository.count());
+	}
+
+	@Test
+	public void sort() {
+		Sort sort = new Sort(Sort.Direction.ASC, "name");
+		logger.info("Sorted Courses -> {} ", repository.findAll(sort));
+		//Courses -> [Course[JPA in 50 Steps], Course[Spring in 50 Steps], Course[Spring Boot in 100 Steps]] 
+	}
+
+	@Test
+	public void pagination() {
+		PageRequest pageRequest = PageRequest.of(0, 3);
+		
+		Page<Course> firstPage = repository.findAll(pageRequest);
+		logger.info("First Page -> {} ", firstPage);
 	}
 
 }
