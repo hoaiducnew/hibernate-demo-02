@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.example.hibernatedemo02.entity.Course;
 
+@RepositoryRestResource(path="courses")
 public interface CourseSpringDataRepository extends JpaRepository<Course, Long> {
 	List<Course> findByNameAndId(String name, Long id);
 
