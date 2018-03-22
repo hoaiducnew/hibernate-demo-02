@@ -64,6 +64,7 @@ public class CourseSpringDataRepositoryTest {
 		
 		Page<Course> firstPage = repository.findAll(pageRequest);
 		logger.info("First Page -> {} ", firstPage);
+		logger.info("First Page -> {} ", firstPage.getContent());
 	}
 
 }
