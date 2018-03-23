@@ -1,6 +1,7 @@
 package com.example.hibernatedemo02.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,7 +14,7 @@ public class Review {
 	@GeneratedValue
 	private Long id;
 
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private Rating rating;
 
 	private String description;
