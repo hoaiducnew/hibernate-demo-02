@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.example.hibernatedemo02.entity.Course;
+import com.example.hibernatedemo02.entity.Rating;
 import com.example.hibernatedemo02.entity.Review;
 
 @Repository
@@ -55,8 +56,8 @@ public class CourseRepository {
 		logger.info("course.getReviews() -> {}", course.getReviews());
 
 		// add 2 reviews to it
-		Review review1 = new Review("5", "Great Hands-on Stuff.");
-		Review review2 = new Review("5", "Hatsoff.");
+		Review review1 = new Review(Rating.FIVE, "Great Hands-on Stuff.");
+		Review review2 = new Review(Rating.FIVE, "Hatsoff.");
 
 		// setting the relationship
 		course.addReview(review1);

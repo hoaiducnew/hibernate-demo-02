@@ -1,6 +1,7 @@
 package com.example.hibernatedemo02.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -12,7 +13,8 @@ public class Review {
 	@GeneratedValue
 	private Long id;
 
-	private String rating;
+	@Enumerated
+	private Rating rating;
 
 	private String description;
 	
@@ -22,7 +24,7 @@ public class Review {
 	protected Review() {
 	}
 
-	public Review(String rating, String description) {
+	public Review(Rating rating, String description) {
 		this.rating = rating;
 		this.description = description;
 	}
@@ -35,11 +37,11 @@ public class Review {
 		this.description = description;
 	}
 
-	public String getRating() {
+	public Rating getRating() {
 		return rating;
 	}
 
-	public void setRating(String rating) {
+	public void setRating(Rating rating) {
 		this.rating = rating;
 	}
 	
